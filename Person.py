@@ -74,7 +74,7 @@ class Person:
                             testNode = queue[-1]
 
         if found == True:
-            print(str(testNode['level']) + ": " + testNode['node'].name + "(" + testNode['node'].wiki + ")")
+            print(str(testNode['level']) + ": " + testNode['node'].id + " - " + testNode['node'].name + "(" + testNode['node'].wiki + ")")
 
             node = testNode
             parent = testNode['parent']
@@ -86,18 +86,18 @@ class Person:
                 while not discovered:
                     if i < len(dequeue) and dequeue[i]['node'] == parent:
                         discovered = True
-                        print(str(dequeue[i]['level']) + ": " + dequeue[i]['node'].name + "(" + dequeue[i]['node'].wiki + ")")
+                        print(str(dequeue[i]['level']) + ": " + dequeue[i]['node'].id + " - " + dequeue[i]['node'].name + "(" + dequeue[i]['node'].wiki + ")")
                         parent = dequeue[i]['parent']
                         # print(parent)
                     elif i < len(queue) and queue[i]['node'] == parent:
                         discovered = True
-                        print(str(queue[i]['level']) + ": " + queue[i]['node'].name + "(" + queue[i]['node'].wiki + ")")
+                        print(str(queue[i]['level']) + ": " + dequeue[i]['node'].id + " - " + queue[i]['node'].name + "(" + queue[i]['node'].wiki + ")")
                         parent = queue[i]['parent']
                         # print(parent)
 
                     i += 1
 
-            print("0: " + self.name + "(" + self.wiki + ")")
+            print("0: " + self.id + " - " + self.name + "(" + self.wiki + ")")
 
 file = open("ancestorsFinal.txt", "r")
 file.readline()
@@ -126,7 +126,7 @@ for line in file:
         people[attr[0]].addFather(people[father])
 
 person = people['Q9682']
-person2 = people['Q127387']
+person2 = people['Q3044']
 
 print(person, person.wiki, person.mother, person.father, person.father.wiki, person.children)
 
