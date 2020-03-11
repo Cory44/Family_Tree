@@ -11,6 +11,6 @@ This is the script used to scrape wikidata.org. I let it on a AWS Micro server, 
 
 
 ##### ancestorsFinal.txt
-ancestorsFinal.txt holds all the data that was extracted by running th etree_builder.py script. One person per line, and columns are separated with an astrex character (*) due to issues with commaa in peoples names causing parsing issues
+ancestorsFinal.txt holds all the data that was extracted by running the tree_builder.py script. One person per line, and columns are separated with an asterisk character (*) due to issues with comma in peoples names causing parsing issues
 
 **Disclaimer**: As the data is from Wikidata, which is a collaboratively edited knowledge base, not all connections can be verified. References are included on the individuals wikidata page where available.
