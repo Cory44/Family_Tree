@@ -1,6 +1,10 @@
 # Family Tree
 
-Find family connections between people born thousands of years apart. Information from over 600,000 individuals has been pulled from [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) using [Beautiful Soup 4](https://www.crummy.com/software/BeautifulSoup/) and [requests](https://requests.readthedocs.io/en/master/) in python. 
+Find family connections between people born thousands of years apart. Information from over 600,000 individuals has been pulled from [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) using [Beautiful Soup 4](https://www.crummy.com/software/BeautifulSoup/) and [requests](https://requests.readthedocs.io/en/master/) in python.
+
+
+From Arnie to Liz, via JFK!
+![alt text](path_example.png) 
 
 ##### Person.py 
 The `path()` method in in the Person object uses breadth-first search to find the shortest path between 2 people, and prints out all individual in the path.

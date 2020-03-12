@@ -126,8 +126,8 @@ for line in file:
         people[attr[0]].addFather(people[father])
 
 person = people['Q9682']
-person2 = people['Q3044']
+person2 = people['Q2685']
 
-print(person, person.wiki, person.mother, person.father, person.father.wiki, person.children)
+# print(person, person.wiki, person.mother, person.father, person.father.wiki, person.children)
 
 person2.path(person)
