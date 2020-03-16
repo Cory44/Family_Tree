@@ -42,7 +42,7 @@ class Person:
 
         while not found and len(queue):
             x += 1
-            if x % 10000 == 0 : print(len(peopleFound), len(queue), len(peopleFound)-len(queue))
+            if x % 25000 == 0 : print(len(peopleFound), len(queue), len(peopleFound)-len(queue))
 
             node = queue.pop(0)
             dequeue.append(node)
@@ -98,36 +98,3 @@ class Person:
                     i += 1
 
             print("0: " + self.id + " - " + self.name + "(" + self.wiki + ")")
-
-file = open("ancestorsFinal.txt", "r")
-file.readline()
-
-people = {}
-
-for line in file:
-    attr = line.split("*")
-    people[attr[0]] = Person(attr[0], attr[1], attr[2])
-
-file.close()
-file = open("ancestorsFinal.txt", "r")
-file.readline()
-
-for line in file:
-    attr = line.split("*")
-
-    mother = attr[5]
-    father = attr[6][:len(attr[6])-1]
-
-    # print(attr[1], mother, father)
-    if mother != '' and mother in people:
-        people[attr[0]].addMother(people[mother])
-
-    if father != '' and father in people:
-        people[attr[0]].addFather(people[father])
-
-person = people['Q9682']
-person2 = people['Q2685']
-
-# print(person, person.wiki, person.mother, person.father, person.father.wiki, person.children)
-
-person2.path(person)
