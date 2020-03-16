@@ -1,5 +1,18 @@
+####################################################################
+#
+#                           Person.py
+#
+# Creates a Person object, with ID, name and wikipedia links.
+# Person objects can then be connected with a mother and father
+# Person object which then creates a 2 way edge (parent-child and
+# child-parent). Using these connections, a graph structure can
+# be created to represent a family tree
+#
+####################################################################
+
 class Person:
 
+    # Initialize with given ID, Name and Wikipedia Link. All relationships start empty
     def __init__(self, id, name, wiki):
         self.id = id
         self.name = name
@@ -8,20 +21,27 @@ class Person:
         self.father = None
         self.children = []
 
+    # Return the persons name when printed
     def __str__(self):
         return self.name
 
+    # Adds a Person object as a mother attribute and appends 'self' to the children attribute list
+    # of the mother
     def addMother(self, mother):
         if self.mother == None:
             self.mother = mother
-            mother.addChild(self)
+            mother.__addChild(self)
 
+    # Adds a Person object as a father attribute and appends 'self' to the children attribute list
+    # of the father
     def addFather(self, father):
         if self.father == None:
             self.father = father
-            father.addChild(self)
+            father.__addChild(self)
 
-    def addChild(self, child):
+    # Adds a Person object to the children list attribute.
+    # Private method, designed to only be called within the addmother() or addFather() methods
+    def __addChild(self, child):
         isAdded = False
 
         for myChild in self.children:
@@ -31,6 +51,8 @@ class Person:
         if not isAdded:
             self.children.append(child)
 
+    # Uses a breath-first search to find the given Person object within the Graph structure
+    # Then, if found a match, prints the Person details of every node in the shortest path
     def path(self, person):
 
         found = False
@@ -76,7 +98,6 @@ class Person:
         if found == True:
             print(str(testNode['level']) + ": " + testNode['node'].id + " - " + testNode['node'].name + "(" + testNode['node'].wiki + ")")
 
-            node = testNode
             parent = testNode['parent']
 
             while parent != self:
@@ -88,13 +109,13 @@ class Person:
                         discovered = True
                         print(str(dequeue[i]['level']) + ": " + dequeue[i]['node'].id + " - " + dequeue[i]['node'].name + "(" + dequeue[i]['node'].wiki + ")")
                         parent = dequeue[i]['parent']
-                        # print(parent)
                     elif i < len(queue) and queue[i]['node'] == parent:
                         discovered = True
                         print(str(queue[i]['level']) + ": " + dequeue[i]['node'].id + " - " + queue[i]['node'].name + "(" + queue[i]['node'].wiki + ")")
                         parent = queue[i]['parent']
-                        # print(parent)
 
                     i += 1
 
             print("0: " + self.id + " - " + self.name + "(" + self.wiki + ")")
+        else:
+            print("Person not Found")

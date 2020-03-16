@@ -1,3 +1,22 @@
+####################################################################
+#
+#                        tree_builder.py
+#
+# Script used to pull all the Wikidata.org data using requests and
+# Beautiful Soup 4. Data is formatted and stored in the
+# ancestorsFinal.txt file where it is processed further in main.py
+# to create the family tree.
+#
+# Change the ID at line 93 for a starting person. I have used
+# Charlemagne as my starting person (ID Q3044).
+#
+# NOTE: As requests a new page for each person, it can take
+# sometime to run. Starting with Charlemange there were over 600,000
+# pages parsed, which took a few days (maybe a week?) to run on a
+# AWS micro server.
+#
+####################################################################
+
 import requests, gc
 from bs4 import BeautifulSoup as soup
 
