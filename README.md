@@ -7,11 +7,11 @@ From Arnie to Liz, via JFK!
 ![alt text](path_example.png) 
 
 ##### Person.py 
-The `path()` method in in the Person object uses breadth-first search to find the shortest path between 2 people, and prints out all individual in the path.
+The `path()` method in the Person object uses breadth-first search to find the shortest path between 2 people, and prints out all individuals in the path.
 
 
 ##### tree_builder.py
-This is the script used to scrape wikidata.org. I let it on a AWS Micro server, which took about 12 days to pull all 600,000 people
+This is the script used to scrape wikidata.org. I let it run on a AWS Micro server, which took about 12 days to pull all 600,000 people
 
 
 ##### ancestorsFinal.txt

@@ -25,7 +25,7 @@ file = open("ancestorsFinal.txt", "r")
 file.readline()
 
 # This loop creates mother-father relationships in the Person object, connecting the nodes and creating the family tree
-# When calling the addMother()/addfather method, it also creates a child relationship the other way
+# When calling the addMother()/addfather() method, it also creates a child relationship the other way
 for line in file:
     attr = line.split("*")
 
@@ -40,7 +40,7 @@ for line in file:
 
 # Enter the person IDs here
 person1 = people['Q9682']
-person2 = people['Q9439']
+person2 = people['Q76']
 
 # Call the path() method to display the path between 2 people
 person1.path(person2)
